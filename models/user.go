@@ -1,10 +1,10 @@
 package models
 
 import (
-	"fmt"
-
+	"errors"
 	"example.com/event_booking/db"
 	"example.com/event_booking/utils"
+	"fmt"
 )
 
 type User struct {
@@ -58,4 +58,11 @@ func (u User) ValidateCredentials() error {
 		return err
 	}
 
+	passwordIsValid := utils.CheckPasswordHash(u.Password, retrievedPassword)
+
+	if !passwordIsValid {
+		return errors.New("credentials invalid")
+	}
+
+	return nil
 }
