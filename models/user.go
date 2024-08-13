@@ -44,3 +44,18 @@ func (u *User) Save() error {
 	u.ID = id
 	return err
 }
+
+// func GetUserByID(id int64) (*)
+
+func (u User) ValidateCredentials() error {
+	query := "SELECT password FROM users WHERE email = ?"
+	row := db.DB.QueryRow(query, u.Email)
+
+	var retrievedPassword string
+	err := row.Scan(&retrievedPassword)
+
+	if err != nil {
+		return err
+	}
+
+}
