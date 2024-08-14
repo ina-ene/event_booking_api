@@ -1,10 +1,10 @@
 package models
 
 import (
-	"fmt"
-
+	"errors"
 	"example.com/event_booking/db"
 	"example.com/event_booking/utils"
+	"fmt"
 )
 
 type User struct {
@@ -43,4 +43,26 @@ func (u *User) Save() error {
 	id, err := result.LastInsertId()
 	u.ID = id
 	return err
+}
+
+// func GetUserByID(id int64) (*)
+
+func (u User) ValidateCredentials() error {
+	query := "SELECT id, password FROM users WHERE email = ?"
+	row := db.DB.QueryRow(query, u.Email)
+
+	var retrievedPassword string
+	err := row.Scan(&u.ID, &retrievedPassword)
+
+	if err != nil {
+		return err
+	}
+
+	passwordIsValid := utils.CheckPasswordHash(u.Password, retrievedPassword)
+
+	if !passwordIsValid {
+		return errors.New("credentials invalid")
+	}
+
+	return nil
 }
