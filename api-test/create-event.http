@@ -1,10 +1,10 @@
 POST http://localhost:8080/events
 content-type: application/json
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZyYW5rX3NpbmF0cmFAZ21haWwuY29tIiwiZXhwIjoxNzIzNzIyMjE2LCJ1c2VySWQiOjF9.sVD5mAmZJS6DgVGK77B-xkp5248tTgAtVilunUOtCWc
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZpb25hX2FwcGxlQGdtYWlsLmNvbSIsImV4cCI6MTcyMzcyOTQ3MSwidXNlcklkIjoxfQ.3ZjKzfMv23IaNns0fO-4MVyIHHwnJY_WuDs_Cn1Iwq8
 
 {
-    "name": "Test event 3",
-    "description": "Another test event",
+    "name": "Fiona's Event",
+    "description": " test event",
     "location": "A test location",
     "dateTime": "2025-01-01T15:30:00.000Z"
 

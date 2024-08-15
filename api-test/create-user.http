@@ -1,7 +1,12 @@
 POST http://localhost:8080/signup
 content-type: application/json 
 
+# {
+#     "email": "fiona_apple@gmail.com",
+#     "password": "fiona11"
+# }
+
 {
-    "email": "fiona_apple@gmail.com",
-    "password": "fiona11"
+    "email": "frank_sinatra@gmail.com",
+    "password": "frank11"
 }
